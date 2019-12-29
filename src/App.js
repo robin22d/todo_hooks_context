@@ -1,24 +1,20 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import ToDoContextProvider from "./contexts/ToDosContext";
+import FormContextProvider from "./contexts/FormContext";
+import Header from "./components/Header";
+import ToDosList from "./components/ToDosList";
+import AddToDosForm from "./components/AddToDosForm";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ToDoContextProvider>
+        <Header />
+        <FormContextProvider>
+          <AddToDosForm />
+          <ToDosList />
+        </FormContextProvider>
+      </ToDoContextProvider>
     </div>
   );
 }
